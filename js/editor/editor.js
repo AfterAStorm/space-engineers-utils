@@ -88,6 +88,7 @@ const lcd_preset                = getListBox        ("OPTION_lcdPreset")
 const custom_size_x             = getNumberInput    ("OPTION_custom_x")
 const custom_size_y             = getNumberInput    ("OPTION_custom_y")
 const dithering                 = getCheckboxInput  ("OPTION_floyddither")
+const compress                  = getCheckboxInput  ("OPTION_compress")
 
 /* Screens */
 
@@ -307,6 +308,24 @@ file.changed(() => {
     image.src = URL.createObjectURL(fileData)
 })
 
+function compressString(prefix, string) {
+    let data = `${prefix}:`
+    const characters = string.replaceAll('\n', '').split('')
+    for (let i = 0; i < characters.length; i++) {
+        let num = 1
+        let letter = characters[i]
+        while (i < characters.length - 1 && characters[i] === characters[i + 1]) {
+            num++
+            i++
+        }
+        if (num == 1)
+            data += letter
+        else
+            data += `${letter}${num}`
+    }
+    return data
+}
+
 function applyTransparency(string) {
     const transparency1 = '\uE075\uE072\uE070'
     const transparency2 = '\uE076\uE073\uE071'
@@ -366,12 +385,17 @@ function generate() {
     generated = applyTransparency(generated)
     generated = generated.substring(0, generated.length - 1) // chop of last \n
 
+    if (compress.get()) {
+        notif.innerText = 'Compressing...'
+        generated = compressString(`${width}x${height}`, generated)
+    }
+
     navigator.clipboard.writeText(generated)
-    notif.innerText = 'Copied!'
+    notif.innerText = `Copied! (${generated.length} characters)`
     notif.className = 'notif'
     setTimeout(() => { // animation length is 1s
         notif.remove()
-    }, 1100)
+    }, 2100)
 }
 
 document.getElementById('generate').onclick = generate

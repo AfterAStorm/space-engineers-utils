@@ -69,7 +69,7 @@ ul > li {
 }
 
 .notif {
-    animation: 1s ease fade;
+    animation: 2s ease fade;
     opacity: 0;
 }
 
