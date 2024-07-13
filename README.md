@@ -1,5 +1,5 @@
-# e2-egp-drawer
+# space-engineers-util
 
-For making EGP (screens) easier!
+For making space engineers monospace images
 
-https://afterastorm.github.io/e2-egp-drawer/
+forked off of my [e2 drawer](https://afterastorm.github.io/e2-egp-drawer/)
