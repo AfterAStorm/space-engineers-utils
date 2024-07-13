@@ -1,0 +1,89 @@
+﻿/* Body */
+
+:root {
+    --Theme-Body-Background: bisque;
+    --Theme-Background: beige;
+
+    width: 100%;
+    height: 100%;
+}
+
+body {
+    background-color: var(--Theme-Body-Background);
+    margin: 8px;
+    display: flex;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    position: relative;
+}
+
+* {
+    cursor: default;
+    user-select: none;
+}
+
+/* Editor */
+
+#editor {
+    background-color: #000000;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+}
+
+#editor-side-panel {
+    margin-left: 10px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    width: 100%;
+    height: 3rem;
+    margin: 0px 0px 10px 0px;
+    font-size: 3rem;
+    text-align: center;
+}
+
+h2 {
+    width: calc(100% - 10px);
+    padding-left: 10px;
+    text-align: left;
+    margin: 15px 0px 0px 0px;
+    text-decoration: underline;
+}
+
+.editor-panel {
+    background-color: var(--Theme-Background);
+    border-radius: 5px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+ul > li {
+    list-style: none;
+}
+
+.notif {
+    animation: 1s ease fade;
+    opacity: 0;
+}
+
+@keyframes fade {
+    from {
+        opacity: 1;
+        height: 1rem;
+        margin: 0px;
+        padding: 0px;
+    }
+    to {
+        opacity: 0;
+        height: 0px;
+        margin: 0px;
+        padding: 0px;
+    }
+}

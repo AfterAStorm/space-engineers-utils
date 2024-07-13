@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>SE Images</title>
+        <link rel="stylesheet" href="index.css">
+        <script type="module" src="js/editor/editor.js" defer></script>
+    </head>
+    <body>
+        <canvas id="editor" width="512" height="512"></canvas>
+        <div id="editor-side-panel" class="editor-panel">
+            <h1>Space Engineers Monospace Images</h1>
+            <h1 style="font-size: small; margin: 0; height: 1.5rem">by AfterAStorm, ported from <a href="https://github.com/Whiplash141/Whips-Image-Converter">WhipsImageConverter</a></h1>
+            <h2>Options</h2>
+            <ul>
+                <li>
+                    <input type="file" id="OPTION_file">
+                    <label for="OPTION_file">Upload image</label>
+                </li>
+                <li>
+                    <input list="panel-sizes" id="OPTION_lcdPreset">
+                    <label for="OPTION_lcdPreset">LCD preset</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="OPTION_preview" checked>
+                    <label for="OPTION_preview">Preview</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="OPTION_floyddither">
+                    <label for="OPTION_floyddither">Floyd-Steinberg dithering (experimental)</label>
+                </li>
+                <li>
+                    <input type="number" id="OPTION_custom_x" checked>
+                    <label for="OPTION_custom_x">x</label>
+                    <input type="number" id="OPTION_custom_y" checked>
+                    <label for="OPTION_custom_y">Custom size</label>
+                </li>
+            </ul>
+            <h2>Actions</h2>
+            <ul id="action-properties">
+                <input type="text" value="wowzers" id="clipboard" style="display: none;">
+                <li>
+                    <button id="generate">Generate & copy to clipboard</button>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
