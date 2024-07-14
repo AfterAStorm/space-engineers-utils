@@ -310,7 +310,7 @@ file.changed(() => {
 
 function compressString(prefix, string) {
     let data = `${prefix}:`
-    const characters = string.replaceAll('\n', '').split('')
+    const characters = string.replaceAll('\n', ';').split('')
     for (let i = 0; i < characters.length; i++) {
         let num = 1
         let letter = characters[i]
